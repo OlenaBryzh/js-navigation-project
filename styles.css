@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: rgba(65, 173, 192, 0.75);
+}
+
+.overlay {
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(250, 250, 250, 0.85);
+  transform: translateX(-100vw);
+  }
+  
+nav,
+nav ul {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  }
+
+/*set background for nav child elements */
+nav li:nth-of-type(1) {
+  background-color: rgb(207, 82, 82);
+}
+nav li:nth-of-type(2) {
+  background-color: rgb(236, 187, 95);
+}
+nav li:nth-of-type(3) {
+  background-color: rgb(54, 187, 192);
+}
+nav li:nth-of-type(4) {
+  background-color: rgb(57, 127, 184);
+}
+nav li:nth-of-type(5) {
+  background-color: rgb(49, 35, 129);
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  list-style: none;
+}
+
+nav ul li {
+  height: 20%;
+  overflow: hidden;
+}
+
+nav li a {
+  display: block;
+  position: relative;
+  top: 45%;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-align: center;
+  color: rgb(232, 235, 238);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600; 
+  transition: .3s ease-in;
+}
+
+nav li a:hover {
+  transform: scale(1.3);
+}
+/* add pseudo-elements before nav childs */
+nav li a#home::before,
+nav li a#tools::before,
+nav li a#partners::before {
+  content: "";
+  position: absolute;
+  background-color: aliceblue;
+  top: 47%;
+  left: 0;
+  height: 3px;
+  width: 40vw;
+  opacity: 0;
+}
+nav li a#home:hover::before,
+nav li a#tools:hover::before,
+nav li a#partners:hover::before {
+  opacity: .85;
+}
+
+/* add pseudo-elements after nav childs */
+nav li a#about::after,
+nav li a#clients::after {
+  content: "";
+  position: absolute;
+  background-color: aliceblue;
+  top: 47%;
+  right: 0;
+  height: 3px;
+  width: 40vw;
+  opacity: 0;
+}
+nav li a#about:hover::after,
+nav li a#clients:hover::after {
+  opacity: .85;
+}
+/* customaize main container */
+.container {
+  width: 100vw;
+  margin: 0; 
+  padding: 0;
+} 
+/* settings for home section */
+.home-container {
+  width: 100%;
+  height: 100vh;
+  background:linear-gradient(160deg, rgba(114, 203, 245, 0.75), rgba(10, 82, 104, 0.95));
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.home-inner {
+ width: 800px;
+ margin: 0 auto;
+}
+
+.header {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  padding: 4% 1%;
+}
+
+#logo {
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 5px;
+  padding-top: 1px;
+  padding-bottom: 1px;	
+  border-top: 2.5px solid;
+  border-bottom: 2.5px solid; 
+}
+
+/*settings for menu icon */
+.menu-bars {
+  display: inline-block;
+  cursor: pointer;
+  }
+  
+  .bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 4px;
+  background-color: rgb(255, 255, 255);
+  margin: 6px 0;
+  transition: 0.4s;
+  }
+  
+  /* Rotate first bar */
+  .change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+  transform: rotate(-45deg) translate(-9px, 6px) ;
+  }
+  
+  /* Fade out the second bar */
+  .change .bar2 {
+  opacity: 0;
+  }
+  
+  /* Rotate last bar */
+  .change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+  transform: rotate(45deg) translate(-8px, -8px) ;
+  }
+
+/* customize home section */
+.home {
+  height: 75vh;
+  width: 800px;
+  background:linear-gradient(65deg, rgba(17, 56, 107, 0.75), rgba(255, 255, 255, 0.05)), url(https://images.unsplash.com/photo-1576273572605-c7a27d9ad666?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8&auto=format&fit=crop&w=700&q=60);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.main-text {
+  color: whitesmoke;
+  padding-top: 2%;
+  padding-left: 8%;
+  font-family: 'Poppins', sans-serif;
+  text-transform: lowercase;
+  letter-spacing: 4px;
+}
+
+/* CREATE animation settings*/
+.path {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 300;
+  animation: dash 8s linear alternate infinite;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 300;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+/* set style for other sections */
+.about, 
+.tools,
+.clients,
+.partners {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;
+  height: 100vh;
+  display: flex;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  color: whitesmoke;
+  letter-spacing: 5px;
+  align-items: center;
+  justify-content: center;
+}
+ 
